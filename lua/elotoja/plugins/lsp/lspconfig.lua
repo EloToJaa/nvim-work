@@ -71,41 +71,6 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		-- local flake = os.getenv("NH_FLAKE")
-		-- local handle = io.popen("hostname")
-		--
-		-- local hostname
-		-- if handle then
-		-- 	hostname = handle:read("*a")
-		-- 	handle:close()
-		-- else
-		-- 	hostname = "desktop"
-		-- end
-		--
-		-- vim.lsp.enable("nixd")
-		-- vim.lsp.config("nixd", {
-		-- 	cmd = { "nixd" },
-		-- 	settings = {
-		-- 		nixd = {
-		-- 			nixpkgs = {
-		-- 				expr = 'import (builtins.getFlake "' .. flake .. '").inputs.nixpkgs { }',
-		-- 			},
-		-- 			formatting = {
-		-- 				command = { "alejandra" },
-		-- 			},
-		-- 			options = {
-		-- 				nixos = {
-		-- 					expr = '(builtins.getFlake "'
-		-- 						.. flake
-		-- 						.. '").nixosConfigurations.'
-		-- 						.. hostname
-		-- 						.. ".options",
-		-- 				},
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
-
 		vim.lsp.enable("clangd")
 		vim.lsp.config("clangd", {
 			capabilities = capabilities,
@@ -123,42 +88,6 @@ return {
 
 		vim.lsp.enable("markdown_oxide")
 
-		-- vim.lsp.enable("elixirls")
-		-- vim.lsp.config("elixirls", {
-		-- 	capabilities = capabilities,
-		-- 	cmd = { "elixir-ls" },
-		-- })
-
-		-- vim.lsp.enable("rust_analyzer")
-		-- vim.lsp.config("rust_analyzer", {
-		-- 	capabilities = capabilities,
-		-- 	on_attach = function(client, bufnr)
-		-- 		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-		-- 	end,
-		-- 	settings = {
-		-- 		["rust-analyzer"] = {
-		-- 			imports = {
-		-- 				granularity = {
-		-- 					group = "module",
-		-- 				},
-		-- 				prefix = "self",
-		-- 			},
-		-- 			cargo = {
-		-- 				allFeatures = true,
-		-- 				buildScripts = {
-		-- 					enable = true,
-		-- 				},
-		-- 			},
-		-- 			checkOnSave = {
-		-- 				command = "clippy",
-		-- 			},
-		-- 			procMacro = {
-		-- 				enable = true,
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
-
 		vim.lsp.enable("gopls")
 		vim.lsp.config("gopls", {
 			capabilities = capabilities,
@@ -170,19 +99,6 @@ return {
 				gofumpt = true,
 			},
 		})
-
-		-- vim.lsp.enable("svelte")
-		-- vim.lsp.config("svelte", {
-		-- 	capabilities = capabilities,
-		-- 	on_attach = function(client, bufnr)
-		-- 		vim.api.nvim_create_autocmd("BufWritePost", {
-		-- 			pattern = { "*.js", "*.ts" },
-		-- 			callback = function(ctx)
-		-- 				client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-		-- 			end,
-		-- 		})
-		-- 	end,
-		-- })
 
 		vim.lsp.enable("emmet_ls")
 		vim.lsp.config("emmet_ls", {
@@ -226,23 +142,13 @@ return {
 			},
 		})
 
-		-- vim.lsp.confg("templ", {
-		-- 	capabilities = capabilities,
-		-- 	on_attach = function(client, bufnr)
-		-- 		vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })
-		-- 	end,
-		-- })
-
 		vim.lsp.enable("zls")
-		-- vim.lsp.enable("astro")
 		vim.lsp.enable("tailwindcss")
 		vim.lsp.enable("ts_ls")
 		vim.lsp.enable("lua_ls")
 		vim.lsp.enable("bash_ls")
-		-- vim.lsp.enable("docker_compose_language_service")
-		-- vim.lsp.enable("sqls")
-		-- vim.lsp.enable("taplo")
-		-- vim.lsp.enable("yamlls")
-		-- vim.lsp.enable("jsonls")
+		vim.lsp.enable("taplo")
+		vim.lsp.enable("yamlls")
+		vim.lsp.enable("jsonls")
 	end,
 }
